@@ -18,6 +18,6 @@ $query = mysqli_query($con, "INSERT INTO test VALUES(NULL, 'mi')");
         <title> SwirlFeed</title>
     </head>
     <body>
-        Hello Chuan !!!!
+        Hello Chuan !!!!!!!!!
     </body>
 </html>
