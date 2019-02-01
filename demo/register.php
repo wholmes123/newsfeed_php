@@ -103,7 +103,7 @@ if (isset($_POST['register_button'])) {
             $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
         else if ($rand == 2)
             $profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
-        
+
     }
 }
 ?>
