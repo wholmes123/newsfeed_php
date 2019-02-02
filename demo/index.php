@@ -1,23 +1,9 @@
-
-
 <?php
-$con = mysqli_connect("localhost", "root", "", "social");
+include("includes/header.php");
+// session_destroy();   // destroy all session everytime after loaded index.php
+?>
 
-if (mysqli_connect_errno()) {
-    echo "Failed to connect: " . mysqli_connect_errno();
-}
-
-// $query = mysqli_query($con, "INSERT INTO test VALUES(NULL, 'mi')");
-
- ?>
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title> SwirlFeed</title>
-    </head>
-    <body>
-        Hello Chuan !!!!!!!!!
-    </body>
+<!-- first half of body/html tag is in header.php, if loggedIn -->
+    Hello Chuan !!!!!!!!!
+</body>
 </html>
