@@ -5,9 +5,10 @@ include("includes/header.php");
 
 <!-- first half of body/html tag is in header.php, if loggedIn -->
     <div class="user_details column">
-        <a href="#"> <img src="<?php echo $user['profile_pic'];?>" alt=""> </a>
+        <a href="<?php echo $userLoggedIn ?>"> <img src="<?php echo $user['profile_pic'];?>" alt=""> </a>
+
         <div class="user_details_left_right">
-            <a href="#">
+            <a href="<?php echo $userLoggedIn ?>">
             <?php
             echo $user['first_name'] . " " . $user['last_name']
             ?>
@@ -30,7 +31,7 @@ include("includes/header.php");
 
     </div>
 
-    </div>
 
+</div>
 </body>
 </html>
