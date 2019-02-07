@@ -18,18 +18,7 @@ include("includes/header.php");
             ?>
         </div>
 
-<<<<<<< HEAD
-<?php
-include("includes/header.php");
- ?>
 
-
-    <div class="user_details column">
-        <a href="#"><img src="<?php echo $user['profile_pic']; ?>" alt=""> </a>
-
-    </div>
-
-=======
     </div>
 
     <div class="main_column column">
@@ -42,6 +31,6 @@ include("includes/header.php");
     </div>
 
     </div>
->>>>>>> 07c17d216dfabad8b84f3a1b0225c9736ef33708
+
 </body>
 </html>

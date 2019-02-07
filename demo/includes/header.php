@@ -1,15 +1,5 @@
 <?php
 require 'config/config.php';
-<<<<<<< HEAD
- ?>
-
- <!DOCTYPE html>
- <html>
-     <head>
-         <title>Welcome to NewsFeed!</title>
-     </head>
-     <body>
-=======
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
@@ -65,4 +55,3 @@ else {
     </div>
 
     <div class="wrapper">
->>>>>>> 07c17d216dfabad8b84f3a1b0225c9736ef33708
