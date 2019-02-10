@@ -1,8 +1,16 @@
 <?php
 include("includes/header.php");
 include("includes/classes/User.php");
+include("includes/classes/Post.php");
 // session_destroy();   // destroy all session everytime after loaded index.php
+
+if (isset($_POST['post'])) {
+    $post = new Post($con, $userLoggedIn);
+    $post->submitPost($_POST['post_text'], 'none');
+}
+
 ?>
+
 
 <!-- first half of body/html tag is in header.php, if loggedIn -->
     <div class="user_details column">
@@ -31,9 +39,10 @@ include("includes/classes/User.php");
         </form>
 
         <?php
-        $user_obj = new User($con, $userLoggedIn);
-        echo $user_obj->getFirstAndLastName();
-         ?>
+        $post = new Post($con, $userLoggedIn);
+        $post->loadPostsFriends();
+
+        ?>
 
 
     </div>
