@@ -61,7 +61,7 @@ if(isset($_POST['post'])){
 				$('.posts_area').html(data);
 			}
 		});
-
+		// load for more pages by scrolling
 		$(window).scroll(function() {
 			var height = $('.posts_area').height(); //Div containing posts
 			var scroll_top = $(this).scrollTop();
@@ -79,7 +79,7 @@ if(isset($_POST['post'])){
 
 					success: function(response) {
 						$('.posts_area').find('.nextPage').remove(); //Removes current .nextpage
-						$('.posts_area').find('.noMorePosts').remove(); //Removes current .nextpage
+						$('.posts_area').find('.noMorePosts').remove(); //Removes current .noMorePosts
 
 						$('#loading').hide();
 						$('.posts_area').append(response);
