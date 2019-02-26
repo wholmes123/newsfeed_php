@@ -1,5 +1,7 @@
 <?php
 require 'config/config.php';
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
@@ -17,6 +19,7 @@ else {
     <!-- javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    
     <!-- css -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
@@ -44,7 +47,7 @@ else {
             <a href="#">
                 <i class="fa fa-bell-0 fa-lg"></i>
             </a>
-            <a href="#">
+            <a href="requests.php">
                 <i class="fa fa-users fa-lg"></i>
             </a>
             <a href="#">
