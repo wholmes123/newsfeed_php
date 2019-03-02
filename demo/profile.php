@@ -69,10 +69,19 @@ if(isset($_POST['respond_request'])) {
 
         <input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
 
+        <?php
+        if($userLoggedIn != $username) {
+          echo '<div class="profile_info_bottom">';
+          echo $logged_in_user_obj->getMutualFriends($username) . " Mutual friends";
+          echo '</div>';
+        }
+        ?>
+
         </div>
 
     <div class="main_column column">
-        <?php echo $username; ?>
+        <div class="posts_area"></div>
+        <img id="loading" src="assets/images/icons/loading.gif">
 
     </div>
 
@@ -104,6 +113,62 @@ if(isset($_POST['respond_request'])) {
         </div>
       </div>
     </div>
+
+    <script>
+    var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+    var profileUsername = '<?php echo $username; ?>';
+
+	$(document).ready(function() {
+
+		$('#loading').show();
+
+		//Original ajax request for loading first posts
+		$.ajax({
+			url: "includes/handlers/ajax_load_profile_posts.php",
+			type: "POST",
+			data: "page=1&userLoggedIn=" + userLoggedIn + "&profileUsername=" + profileUsername,
+			cache:false,
+
+			success: function(data) {
+				$('#loading').hide();
+				$('.posts_area').html(data);
+			}
+		});
+		// load for more pages by scrolling
+		$(window).scroll(function() {
+			var height = $('.posts_area').height(); //Div containing posts
+			var scroll_top = $(this).scrollTop();
+			var page = $('.posts_area').find('.nextPage').val();
+			var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+
+			if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
+				$('#loading').show();
+
+				var ajaxReq = $.ajax({
+					url: "includes/handlers/ajax_load_profile_posts.php",
+					type: "POST",
+					data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+					cache:false,
+
+					success: function(response) {
+						$('.posts_area').find('.nextPage').remove(); //Removes current .nextpage
+						$('.posts_area').find('.noMorePosts').remove(); //Removes current .noMorePosts
+
+						$('#loading').hide();
+						$('.posts_area').append(response);
+					}
+				});
+
+			} //End if
+
+			return false;
+
+		}); //End (window).scroll(function())
+
+
+	});
+
+	</script>
 
 
     </div>
